@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "username": "sofi",
+    "name": "pusan",
+    "email": "pusan@gmail.com",
+    "password": "123",
+    "phoneNumber": "010-0038-000",
+    "address": "Dorms",
+    "postalCode": "2222",
+    "city": "hee"
+  },
+  {
+    "id": 2,
+    "username": "tester",
+    "name": "tester",
+    "email": "tester@gmail.com",
+    "password": "1234",
+    "phoneNumber": "010-0038-000",
+    "address": "Dorms",
+    "postalCode": "2222",
+    "city": "there "
+  }
+]
