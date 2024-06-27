@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/resume.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/2.png">
+</head>
+<body style="background-color: transparent;">
+    <div class="container">
+        <h2>Personal Information</h2>
+        <form id="resumeForm">
+            <div class="form-group">
+                <img src="images/profile.jpg" alt="Profile Photo" class="profile-photo">
+                <p>Username: <span id="username"></span></p>
+            </div>
+            <div class="form-group">
+                <p>Name: <span id="name"></span></p>
+            </div>
+            <div class="form-group">
+                <p>Email: <span id="email"></span></p>
+            </div>
+            <div class="form-group">
+                <p>Phone Number: <span id="phone"></span></p>
+            </div>
+            <div class="form-group">
+                <p>Address: <span id="address"></span></p>
+            </div>
+            <div class="form-group">
+                <p>Postal Code: <span id="postal-code"></span></p>
+            </div>
+            <div class="form-group">
+                <p>City: <span id="city"></span></p>
+            </div>
+        </form>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        window.onload = async function() {
+            const response = await fetch('/profile', { method: 'GET' });
+            const responseData = await response.json();
+
+            if (responseData.user) {
+                populateForm(responseData.user);
+            } else {
+                // Redirect to login page if user is not logged in
+                window.location.href = '/login.html';
+            }
+        };
+
+        function populateForm(user) {
+            document.getElementById('username').innerText = user.username;
+            document.getElementById('name').innerText = user.name;
+            document.getElementById('email').innerText = user.email;
+            document.getElementById('phone').innerText = user.phoneNumber;
+            document.getElementById('address').innerText = user.address;
+            document.getElementById('postal-code').innerText = user.postalCode;
+            document.getElementById('city').innerText = user.city;
+        }
+
+        function logout() {
+            fetch('/logout', { method: 'POST' })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect to login page after logout
+                    window.location.href = '/index.html';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

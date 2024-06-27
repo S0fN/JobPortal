@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>Job Search</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/2.png">
+</head>
+
+<body>
+  <div class="c">
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/1.png" alt="Logo">
+      </div>
+      <div class="inner">
+        <a class="sign-up" href="./signup.html">
+          <span class="material-icons">account_circle</span>
+          Sign up
+        </a>
+        <a class="login" href="./login.html">
+          <span class="material-icons">login</span>
+          Login
+        </a>
+      </div>
+    </div>
+    <div class="nav-center">
+      <nav>
+        <ul>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="./resource.html">Resources</a></li>
+          <li><a href="./resume.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="search">
+    <form id="searchForm" class="search-box" aria-label="Job Search Form">
+      <label for="query"></label>
+      <input type="text" id="query" name="q" required aria-required="true" aria-label="Job search query" placeholder="Enter a query">
+      <button type="submit" id="searchButton">Search</button>
+    </form>
+  </div>
+
+
+  <div id="clickableContainer" class="clickable-container">
+    <div class="text-container">
+      <div class="bigh" style="font-size: 38px;">Need to find your next job?</div>
+      <div class="parag">Job seekers need to focus on acquiring relevant skills, certificates, and industry knowledge to stand out. Researching companies for cultural fit is essential. This portal offers a unique approach; users input search queries instead of job titles. It provides lists of popular companies, necessary tools for skill development, and recommended certificate websites, empowering users to find their ideal career fit more effectively.</div>
+      <div class="parag" style="font-weight: 600; font-size: 15px;">Enter a <span class="blink">query</span> above to start!</div>
+    </div>
+  </div>
+
+       
+  <div class="container">
+    <div class="job-list" id="jobList" aria-label="Job List">
+      <!-- Job titles will be inserted here -->
+    </div>
+    <div class="job-details" id="jobDetails" aria-label="Job Details">
+      <!-- Job details will be displayed here -->
+    </div>
+  </div>
+  
+
+  <script>
+    (function() {
+    let animationPlayed = false;
+
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        fetchJobs();
+    });
+
+    document.getElementById('query').addEventListener('input', function () {
+        fetchJobs();
+    });
+
+    document.getElementById('clickableContainer').addEventListener('click', function () {
+        const textContainer = document.querySelector('.text-container');
+        textContainer.classList.remove('hide');
+        document.getElementById('query').focus();
+    });
+
+    function fetchJobs() {
+        const query = document.getElementById('query').value;
+        const textContainer = document.querySelector('.text-container');
+
+        if (!animationPlayed) {
+            textContainer.classList.remove('hide');
+        } else {
+            textContainer.classList.add('no-animation');
+        }
+
+        fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ q: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const jobList = document.getElementById('jobList');
+            jobList.innerHTML = '';
+            data.hits.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'job-item';
+                jobItem.textContent = job.title;
+                jobItem.addEventListener('click', () => {
+                    const jobDetails = document.getElementById('jobDetails');
+                    jobDetails.style.display = 'block';
+                    jobDetails.innerHTML = `
+                        <h2>${job.title}</h2>
+                        <p><strong>Date Posted:</strong> ${job.datePosted}</p>
+                        <p><strong>Hiring Organization:</strong> ${job.hiringOrganizationName}</p>
+                        <p><strong>Status:</strong> ${job.status}</p>
+                        <p><a href="${job.url}" target="_blank" style="color: blue;">Apply here</a></p>
+                        <p><strong>Description:</strong> ${job.description}</p>
+                    `;
+      jobDetails.classList.remove('slide-left');
+        void jobDetails.offsetWidth; 
+        jobDetails.classList.add('slide-left');
+      });
+        jobList.appendChild(jobItem);
+      });
+        jobList.style.display = 'block';
+
+          const container = document.querySelector('.container');
+          const textContainer = document.querySelector('.text-container');
+          textContainer.parentNode.insertBefore(container, textContainer);
+        })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+        animationPlayed = true;
+          }
+      })();
+
+  </script>
+  </div>
+</body>
+
+</html>

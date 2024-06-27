@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/resource.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/2.png">
+</head>
+<style>
+          #searchInput {
+            padding: 5px;
+            font-size: 16px;
+            width: 300px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+            outline: none;
+            margin-left: 10px;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .b1 {
+            opacity: 0; 
+        }
+
+        .animate-slide {
+            animation: slideIn 0.5s ease forwards;
+        }
+        .hg {
+        align-self: stretch;
+        position: relative;
+        line-height: 100%;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 1s ease; 
+        text-align: center;
+        }
+        .fade-in {
+          animation: fadeInAnimation 2s ease forwards; 
+      }
+
+      @keyframes fadeInAnimation {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+        .container,
+        .containerForTwo {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+</style>
+
+<body>
+    <header>
+        <div class="header-container">
+          <div class="logo">
+            <img src="images/1.png" alt="Logo">
+          </div>
+          <div class="inner">
+            <a class="sign-up" href="./signup.html">
+              <span class="material-icons">account_circle</span>
+              Sign up
+            </a>
+            <a class="login" href="./login.html">
+              <span class="material-icons">login</span>
+              Login
+            </a>
+          </div>
+        </div>
+        <div class="nav-center">
+          <nav>
+            <ul>
+              <li><a href="./index.html">Jobs</a></li>
+              <li><a href="./resource.html">Resources</a></li>
+              <li><a href="./resume.html">Profile</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="hg fade-in" style=" font-size: 50px; padding-top: 30px;">Resources to enrich your skill set<br> and strengthen your resume</div><br><br><br><br>
+
+
+      <div class="container">
+        <div class="text-container">
+            <div class="heading" style="font-size: 38px;">Which tools are needed for a certain skill?</div>
+            <div class="paragraph">Search for tools in your specific skill of interest to see which ones are in demand or frequently used</div>
+            <div class="container1">
+                <input type="text" id="searchInput" placeholder="Type and press Enter">
+            </div>
+        </div>
+        <div class="sub-container" id="skillsContainer">
+          <div class="container2"> 
+              <div class="heading"></div>
+          </div>
+          <div class="container2">
+              <div class="heading"></div>
+          </div>
+          <div class="container2"> 
+              <div class="heading"></div>
+          </div>
+          <div class="container2"> 
+              <div class="heading"></div>
+          </div>
+          <div class="container2"> 
+              <div class="heading"></div>
+          </div>
+        </div>
+    </div>
+
+          <br><br><br>
+          
+          <div class="containerForTwo">
+            <div class="wr">
+                <div class="sc">
+                    <div class="ct">
+                        <div class="h1">Popular companies</div>
+                    </div>
+                    <div class="box">
+                        <div class="s1">Choose an industry:</div>
+                        <div class="b">
+                          <select id="industrySelect" class="c industry-dropdown">
+                            <option value="tech">Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="education">Education</option>
+                            <option value="engineering">Engineering</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="sc1">
+                    <div class="ic">
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item0">Google Company</div>                            
+                            </div>
+                        </div>
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item1">Microsoft Company</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ic">
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item2">Apple Company</div>
+                            </div>
+                        </div>
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item3">Amazon Company</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ic">
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item4">Meta (Facebook)</div>
+                            </div>
+                        </div>
+                        <div class="b1">
+                            <div class="w1">
+                              <div class="h3" id="item5">Tesla Company</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clr">
+                <div class="sc">
+                    <div class="ic">
+                        <div class="bk">
+                            <div class="cf">
+                              <a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer"><div class="ttl">freeCodeCamp<br>certificates!</div></a>
+                            </div>
+                        </div>
+                        <div class="cc">
+                            <div class="cf">
+                              <a href="https://www.coursera.org" target="_blank" rel="noopener noreferrer"><div class="ttl">Coursera<br>lessons</div></a>
+                            </div>
+                        </div>
+                        <div class="bk">
+                            <div class="fc">
+                              <a href="https://www.khanacademy.org" target="_blank" rel="noopener noreferrer"><div class="ttl">Khan<br>Academy</div></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ic">
+                        <div class="cr">
+                            <div class="fc">
+                              <a href="https://www.udemy.com" target="_blank" rel="noopener noreferrer"><div class="ttl">Udemy<br>courses</div></a>
+                            </div>
+                        </div>
+                        <div class="cl">
+                            <b class="t">Where to learn and get certificates?</b>
+                            <div class="btn">
+                                <div class="tc">Move over the links!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ic">
+                        <div class="bk">
+                            <div class="cf">
+                              <a href="https://www.theodinproject.com" target="_blank" rel="noopener noreferrer"><div class="ttl">The Odin<br> Project</div></a>
+                            </div>
+                        </div>
+                        <div class="cc">
+                            <div class="cf">
+                              <a href="https://www.codecademy.com" target="_blank" rel="noopener noreferrer"><div class="ttl">Code<br>Academy</div></a>
+                            </div>
+                        </div>
+                        <div class="bk">
+                            <div class="fc">
+                              <a href="https://alison.com/" target="_blank" rel="noopener noreferrer"><div class="ttl">Alison<br>courses</div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+
+
+        <script>
+          const industryData = {
+      tech: [
+          'Google Company',
+          'Microsoft Company',
+          'Apple Company',
+          'Amazon Company',
+          'Facebook Company',
+          'Tesla Company'
+          ],
+          finance: [
+              'JPMorgan Chase',
+              'Bank of America',
+              'Wells Fargo',
+              'Citigroup Company',
+              'Goldman Sachs',
+              'Morgan Stanley'
+          ],
+          healthcare: [
+              'UnitedHealth Group',
+              'Johnson& Johnson',
+              'Pfizer Company',
+              'Merck Comapny',
+              'Abbott Laboratories',
+              'Amgen Company'
+          ],
+          education: [
+              'Pearson Company',
+              'McGraw Education',
+              'Houghton Mifflin',
+              'Cengage Compnay',
+              'Wiley Company',
+              'Chegg Company'
+          ],
+          engineering: [
+              'Toyota Company',
+              'Volkswagen Company',
+              'General Motors',
+              'Ford Company',
+              'Honda Company',
+              'BMW Company '
+          ]
+      };
+
+      function animateItems() {
+    const items = document.querySelectorAll('.b1');
+    items.forEach(function(item, index) {
+        item.classList.remove('animate-slide');
+        const delay = index * 100; 
+        item.style.animationDelay = delay + 'ms';
+        void item.offsetWidth;
+        item.classList.add('animate-slide');
+    });
+}
+
+      document.getElementById('industrySelect').addEventListener('change', function() {
+    const selectedValue = this.value;
+    const items = industryData[selectedValue] || [];
+
+    for (let i = 0; i < items.length; i++) {
+        document.getElementById('item' + i).innerText = items[i] || '';
+    }
+    for (let i = items.length; i < 6; i++) {
+        document.getElementById('item' + i).innerText = '';
+    }
+
+    animateItems();
+});
+
+
+        animateItems();
+
+        
+        document.getElementById("searchInput").addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    var query = document.getElementById("searchInput").value;
+    searchSkills(query);
+  }
+});
+
+function searchSkills(query) {
+  console.log("Searching for skills related to: " + query);
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/search-skills?q=" + query, true);
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        updateSkills(xhr.responseText);
+      } else {
+        console.error("Error fetching skills:", xhr.status);
+      }
+    }
+  };
+  xhr.send();
+}
+
+function updateSkills(skillsText) {
+  var containers = document.querySelectorAll('.container2');
+  var skills = skillsText.split(', ');
+  containers.forEach(function(container, index) {
+    var skillIndex = index + 1;
+    if (skills[skillIndex]) {
+      container.innerHTML = '<div class="heading">' + skills[skillIndex] + '</div>';
+    } else {
+      container.innerHTML = '<div class="heading">No skill available</div>';
+    }
+    container.style.opacity = 1;
+    container.style.transform = 'translateY(0)';
+  });
+}
+window.addEventListener('scroll', function() {
+            const containers = document.querySelectorAll('.container, .containerForTwo');
+            containers.forEach(function(container) {
+                if (container.getBoundingClientRect().top < window.innerHeight) {
+                    container.style.opacity = 1;
+                }
+            });
+        });
+        
+        function loadResume() {
+            fetch('./resume.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('content').innerHTML = html;
+                document.getElementById('content').style.height = document.getElementById('content').scrollHeight + 'px';
+            })
+            .catch(error => console.error('Error loading resume:', error));
+        }
+
+      </script>
+  </body>
+</html>
